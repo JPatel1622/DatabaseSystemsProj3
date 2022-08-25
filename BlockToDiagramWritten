@@ -1,0 +1,99 @@
+General Format:
+a.Name of the entity
+b.The nature of the entity (i.e., superclass, subclass, regular, or weak entity), 
+c.name(s) of the entity’s  superclass(es), if applicable,  
+d.name(s) of its subclass(es), if applicable
+e.its attributes
+f.its relationship(s) with other entities, if applicable
+
+# Ren
+Block 1:
+a. Journal
+b. Regular Entity
+c. No Superclasses
+d. No Subclasses
+e. A journal has a volume number (VolNum), issue number (IssNum), and issue date (IssDate).
+f. Journal publishes Article, announces Event, advertises JobList, and highlights StuProfile
+
+#Alex
+Block 2: 
+
+A) Article
+B) Regular Entity
+C) No Superclasses
+D) No Subclasses
+E) ArticleID, ArticleTitle, ArticleAbstract, ArticleContent, ArticleKeywords,ArticleAuthor(Composite)
+	-Article Authors: ArticleAuthorName, an ArticleAuthorEmployer, and an ArticleAuthorAff.
+E*) (Alternate)  Article has a unqiue ID number(ArticleID), title(ArticleTite), an abstract(ArticleAbstract), content(ArticleContent), and several keywords(ArticleKeyword).
+	An article has several article Authors(ArticleAuthor-composite).  
+	-An ArticleAuthor has a name(ArticleAuthorName), an employer(ArticleAuthorEmployer), and an affiliation(ArticleAuthorAff).
+F) An article cites several references.
+
+Block 3:
+
+A) Reference
+B) Weak Entity
+C) No Superclasses
+D) No Sub classes
+E) RefID, RefTitle, RefPageIndex, RefReleaseDate, RefLocation, RefSource, ReferenceAuthorName.
+E*) (Alternate) A Reference has a title(RefTitle), unique ID number(RefID), a page index(RefPageIndex), 
+	release date(RefReleaseDate), location(RefLocation), source(RefSource), and several reference author names(RefAuthorName). 
+F) No other relationships
+
+
+
+# Sam 
+Block 4:
+a. Event
+b. Superclass of Conference.
+c. Is not a Subclass.
+d. An event can be a conference.
+e. Every Event has an ID(EventID), a start date(EvStartDate), an end date (EvEndDate), a name (EvName), several sponsors (EvSponsor),
+    a location (EvLocation), and a point of contact (EvPointOfContact). The point of Contact has a name (PCName),
+    an email (PCEmail), an address (PCAddress), a fax number (PCFax), and a telephone number(PCTel).
+f. Events are announced in a journal. 
+
+# Sam
+Block 5:
+a. Conference
+b. Subclass
+c. Has a superclass of Event.
+d. Has no subclasses.
+e. A Conference has a coordinator(Coordinator), several guidelines(Guideline), several topics of interest(Topic),
+   several conference paper submission dates(CPSDate), and has several sets of paper contact information(CPSContInfo).
+   Conference paper submission dates have a type(DateType) and a calendar date(CalDate), 
+   paper contact information has name(CPSName), type(CPSType), address(CPSAddress), email(CPSEmail),
+   fax number(CPSFax), and telephone number(CPSTel).
+f. A Conference is attended by several Conference Members.
+
+#Jeel
+Block 6:
+a. ConfMem
+b. Regular Entity
+c. No superclasses
+d. No subclasses
+e. A Conference Member has an ID (ConfMemID), a name (ConfMemName), type (ConfMemtype), affiliation (ConfMemAff), country(ConfMemCountry)
+f. Each conference member attends a conference.
+
+#Jeel
+Block 7:
+a. JobList
+b. Regular Entity
+c. No superclasses
+d. No subclasses
+e. A Job Listing has an ID (JobListID), an open date(JLOpenDate), a close date(JLCloseDate), a title(JLTitle), a job description(JLDescription), a job salary(JLSalary), a job status(JLStatus), 
+   a job location(JLLocation), a job employer(JLEmployer), a set of contact information(JLContactInfo), multiple qualifications(JLQualification). Job Contact Information has 
+   a name(JLCInfoName), an address(JLCInfoAddress), an email(JLCInfoEmail), a phone number(JLCInfoPhone), a fax number(JLCInfoFax)
+f. Each journal advertises several job listings. 
+ 
+
+
+# Ren
+Block 8:
+a. StuProfile
+b. Regular Entity
+c. No Superclasses
+d. No Subclasses
+e. A student profile has an ID (StuID), name (StuName), city (StuCity), state (StuState), country (StuCountry), backstory (StuBackstory), and several degrees (Degree).
+A degree has a degree level (DegLevel), completion year (DegComplete), and degree type (DegType).
+f. Journal highlights StuProfile
